@@ -1,11 +1,12 @@
 # TodoApp
 
 _________________________________________________________
-THIS IS THE APPLICATION FOR SIMPLE DJANGO CRUD OPERATIONS
+THIS IS THE SIMPLE APPLICATION FOR DJANGO CRUD OPERATIONS
 _________________________________________________________
 pre requirements:
+run this command to install all the required packages in your Django environment
 
-
+pip install -r requirements.txt
 
 
 
