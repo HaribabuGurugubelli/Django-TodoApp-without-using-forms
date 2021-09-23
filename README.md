@@ -4,7 +4,7 @@ _________________________________________________________
 THIS IS THE SIMPLE APPLICATION FOR DJANGO CRUD OPERATIONS
 _________________________________________________________
 pre requirements:
-run this command to all the required packages in your environment
+run this command to install all the required packages in your Django environment
 
 pip install -r requirements.txt
 
