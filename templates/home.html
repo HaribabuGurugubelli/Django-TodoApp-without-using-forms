@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <title>Todo</title>
+  </head>
+  <body>
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Stating the code -->
+
+    <!-- Script for auto increament the serial numbers -->
+    <style type="text/css">
+      body {
+        counter-reset: mycount; /* Set the counter to 0 */
+      }
+      .mycount:before {
+        counter-increment: mycount; /* Increment the counter */
+        content: counter(mycount) ". "; /* Display the counter */
+      }
+    </style>
+    <!-- ending the Script for auto increament the serial numbers -->
+    <div class="container">
+      <div class="alert alert-success text-center" role="alert">
+        <h1>TODO APP</h1>
+      </div>
+      <div class="container">
+        <div class="row">
+          <form action="" method="POST" class="d-flex">
+            {% csrf_token %}
+            <div class="col-sm-11">
+              <div class="form-floating mb-3 text-center">
+                <input
+                  type="text"
+                  class="form-control text-center"
+                  id="floatingInput"
+                  placeholder="Add Todo"
+                  name="todo"
+                />
+                <label for="floatingInput">Todo</label>
+              </div>
+            </div>
+            <div class="col-sm-1">
+              <button type="submit" class="btn btn-success mt-2 mx-2">
+                Add
+              </button>
+            </div>
+          </form>
+        </div>
+        <div class="container">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">S.NO</th>
+                <th scope="col">TODO</th>
+                <th scope="col">ACTION</th>
+              </tr>
+            </thead>
+            {% for todo in todos %}
+
+            <tbody>
+              <tr>
+                <td><span class="mycount"></span></td>
+                <td>{{todo.todo}}</td>
+                <td>
+                  <a href="/update/{{todo.id}}" class="text-decoration-none"
+                    >UPDATE</a
+                  >
+                  <span> | </span>
+                  <a href="/delete/{{todo.id}}" class="text-decoration-none"
+                    >DELETE</a
+                  >
+                </td>
+              </tr>
+            </tbody>
+
+            {% endfor %}
+          </table>
+        </div>
+      </div>
+    </div>
+    <!-- end code -->
+    <div class="container alert alert-dark text-center p-2 mb-0" role="alert">
+      Designed by HARIBABU
+    </div>
+  </body>
+</html>
